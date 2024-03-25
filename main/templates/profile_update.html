@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{%block header %}
+{% include 'header.html' %}
+{%endblock header%}
+
+{%block banner %}
+{% include 'banner.html' %}
+{%endblock banner%}
+
+{%block content %}
+
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center title mt-5 mb-5">Your profile update</h1>
+    <div class="col-12 col-md-3 pavat">
+      <img src="{{userprof.profile_picture.url}}" alt="" style="height: 120px">
+      <h5>hi {{user.first_name}}!</h5>
+    </div>
+    <div class="col-12 col-md-6 pform">
+      <form action="{% url 'profile_update' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label ">First Name</label>
+          <input type="text" name="first_name" value="{{userprof.first_name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Last Name</label>
+          <input type="text" name="last_name" value="{{userprof.last_name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Phone number</label>
+          <input type="text" name="phone_number" value="{{userprof.phone_number}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">City</label>
+          <input type="text" name="city"  value="{{userprof.city}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" name="email"  value="{{userprof.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">upload photo</label>
+            <input type="file" name="profile_picture" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div>
+            <button type="submit" class="btn submit">update</button>
+          </div>
+        
+      </form>
+    </div>
+    <div class="col-12 col-md-3 plink">
+      <h2 class="text-center">quick links</h2>
+      <ul class="list-unstyled text-start pt-3">
+        <li> <a href="{% url 'profile' %}"><i class="bi bi-arrow-right-circle"></i> Profile</a></li>
+        <li> <a href="{% url 'profile_update' %}"><i class="bi bi-arrow-right-circle"></i> Profile update</a></li>
+        <li> <a href="{% url 'password_update' %}"><i class="bi bi-arrow-right-circle"></i> Password update</a></li>
+        <li> <a href="{% url 'home' %}"><i class="bi bi-arrow-right-circle"></i> Home</a></li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+  {%endblock content%}
+
+
+  {%block footer %}
+{% include 'footer.html' %}
+{%endblock footer%}
+

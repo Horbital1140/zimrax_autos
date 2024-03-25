@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{%block header %}
+{% include 'header.html' %}
+{%endblock header%}
+
+{%block banner %}
+{% include 'banner.html' %} 
+{%endblock banner%} 
+  
+{%block content %}
+
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <h1 class="text-center reg">Contact Us</h1>
+    <div class="col-12 col-md-6 contact">
+      <form action="{% url 'contact' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >YOUR MESSAGE</label
+          >
+          <textarea
+            name="message"
+            id=""
+            cols="30"
+            rows="10"
+            class="form-control"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn submit">Submit</button>
+      </form>
+    </div>
+    <div class="col-12 col-md-6">
+      <iframe
+        class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15812.828080470746!2d4.554441031722165!3d7.767858463432965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1037880344b63867%3A0xb1fb6e9e054bab7a!2sOke%20Baale%20Ln%2C%20Osogbo%20230284%2C%20Osun!5e0!3m2!1sen!2sng!4v1702044201224!5m2!1sen!2sng"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</div>
+{%endblock content%} 
+
+{%block footer %} 
+{% include 'footer.html' %} 
+{%endblock footer%}

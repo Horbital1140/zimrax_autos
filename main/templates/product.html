@@ -1,0 +1,159 @@
+{% extends 'base.html' %} {%block header %} {% include 'header.html' %}
+{%endblock header%} {%block banner %} {% include 'banner.html' %} {%endblock banner%}
+{%block content %} {% load static %} 
+
+{% if user.is_authenticated %}
+
+  <div class="container product">
+    <h1 class="text-center bg-dark text-danger pt-2">All Products</h1>
+    <div class="row mt-5 mb-5">
+      {% for item in pagin %}
+      <div class="col-12 col-md-6 col-lg-4 col-sm-6" data-aos="zoom-out"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000">
+        <div class="card text-center">
+          <a href=" {% url 'detail' item.id item.slug %} "
+            ><img src="{{item.car_photo.url}}" class="card-img-top" alt="..."
+          /></a>
+          <div class="card-body">
+            <h5 class="card-title">{{item.car_product|title}}</h5>
+            <h5 class="card-title">{{item.model|title}}</h5>
+            <p class="card-text">#{{item.price}}</p>
+
+            <form action="{% url 'add_to_cart' %}" method="POST">
+              {% csrf_token %}
+
+              <input type="hidden" name="quantity" value="1" />
+              <input type="hidden" name="carid" value="{{item.id}}" />
+              <button type="submit" class="btn cart">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {%endfor %}
+
+      <!--PAGINATION-->
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center pt-5">
+          <!--AUTHENTICATING PAGINATOR PREVIOUS BUTTON-->
+          {% if pagin.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{pagin_previous_page_number}}"
+              >Previous</a
+            >
+          </li>
+          {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page=1">Previous</a>
+          </li>
+          {% endif %}
+
+          <!--AUTHENTICATING PAGINATOR PAGE RANGE BUTTONS I.E 1,2,3-->
+
+          {% for item in pagin.paginator.page_range %}
+          {% if pagin.number == item%}
+            <li class="page-item"><a class="page-link" href="#">{{item}}</a></li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{item}}">{{item}}</a>
+            </li>
+          {% endif %}
+          {% endfor %}
+
+          <!--AUTHENTICATING PAGINATOR next BUTTON-->
+
+          {% if pagin.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{pagin.next_page_number}}">Next</a>
+          </li>
+          {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page{{pagin.paginator.num_pages}}"
+              >Next</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+{% else %}
+<div class="container product">
+  <h1 class="text-center bg-dark text-danger pt-2">All Products</h1>
+  <div class="row mt-5 mb-5">
+    {% for item in pagin %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center">
+        <a href=" {% url 'detail' item.id item.slug %} "
+          ><img src="{{item.car_photo.url}}" class="card-img-top" alt="..."
+        /></a>
+        <div class="card-body">
+          <h5 class="card-title">{{item.model|title}}</h5>
+          <p class="card-text">#{{item.price}}</p>
+
+          <form action="{% url 'add_to_cart' %}" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" name="quantity" value="1" />
+            <input type="hidden" name="carid" value="{{item.id}}" />
+            
+          </form>
+        </div>
+      </div>
+    </div>
+    {%endfor %}
+
+    <!--PAGINATION-->
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center pt-5">
+        <!--AUTHENTICATING PAGINATOR PREVIOUS BUTTON-->
+        {% if pagin.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{pagin_previous_page_number}}"
+            >Previous</a
+          >
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1">Previous</a>
+        </li>
+        {% endif %}
+
+        <!--AUTHENTICATING PAGINATOR PAGE RANGE BUTTONS I.E 1,2,3-->
+
+        {% for item in pagin.paginator.page_range %}
+        {% if pagin.number == item%}
+          <li class="page-item"><a class="page-link" href="#">{{item}}</a></li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{item}}">{{item}}</a>
+          </li>
+        {% endif %}
+        {% endfor %}
+
+        <!--AUTHENTICATING PAGINATOR next BUTTON-->
+
+        {% if pagin.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{pagin.next_page_number}}">Next</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a class="page-link" href="?page{{pagin.paginator.num_pages}}"
+            >Next</a
+          >
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% endif %}
+
+
+{%endblock content%} {%block footer %} {% include 'footer.html' %}
+{%endblock footer%}

@@ -1,0 +1,71 @@
+
+{% load static %}
+
+<div class="footer mt-5">
+    <div class="container footer">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+          <div >
+            <img src="{{info.logo.url}}" alt="WELCOME TO ZIMRAX Autos" />
+            <h2 class="motto text-center">Cars for Royalties</h2>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
+          <!--this means on small screen, it should display two, 6 *2 equals 12, normally, column is 12-->
+          <h2>category</h2>
+          <ul class="list-unstyled">
+            <li><a href="">Mercedez benz car</a></li>
+            <li><a href="">toyota cars</a></li>
+            <li><a href="">lexus car</a></li>
+            <li><a href="">honda car</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
+          <h2>quick link</h2>
+          <ul class="list-unstyled">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'product' %}">Products</a></li>
+            <li><a href="{% url 'landing_page' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
+
+
+
+          <h2>follow us</h2>
+          <ul class="list-unstyled">
+            <li>
+              <a href=""><i class="bi bi-facebook"></i>facebook</a>
+            </li>
+            <li>
+              <a href=""><i class="bi bi-linkedin"></i>Linkedin</a>
+            </li>
+            <li>
+              <a href=""><i class="bi bi-instagram"></i>instagram</a>
+            </li>
+            <li>
+              <a href=""><i class="bi bi-tiktok"></i>tiktok</a>
+            </li>
+            <li>
+              <a href=""><i class="bi bi-twitter-x"></i>twitter</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row text-center footer2">
+      <div class="col-12 text-center">
+        <p class="pt-3 copyright">&copy; copyright 2023 Zimrax Autos</p>
+        <h1 class="developer">
+          <a href="https://zimrax.com">Developed by Zimrax Technology Ltd</a>
+        </h1>
+      </div>
+    </div>
+  </div>

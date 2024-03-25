@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{%block header %}
+{% include 'header.html' %}
+{%endblock header%}
+
+{%block banner %}
+{% include 'banner.html' %}
+{%endblock banner%}
+
+{%block content %}
+
+{% load static %}
+
+
+
+
+<section class="about">
+  <h2 data-aos="fade-down" data-aos-duration="2000">About Us</h2>
+  <p data-aos="fade-right" data-aos-duration="2000">Zimrax Autos is your go-to destination for buying and selling cars. We provide a seamless experience with a wide range of cars to choose from. Trust us to make your car buying or selling process easy and enjoyable.</p>
+</section>
+
+<div class="section">
+  <h1>TOYOTA CAR</h1>
+  <img src="{% static '' %}img/toyo 1.jpg" alt="Developer 1" data-aos="fade-down" data-aos-duration="2000">
+  <h4 data-aos="fade-right" data-aos-duration="2000">Buy Toyota Camry where reliability meets refinement for an unparalleled <br>driving experience. The Camry, a true automotive icon, effortlessly combines <br>style, efficiency, and innovation to redefine your daily commute.</h4>
+  
+  <h1>MERCEDES BENZ CAR</h1>
+  <img src="{% static '' %}img/ben 2.jpg" alt="Developer 1" data-aos="fade-down" data-aos-duration="2000">
+  <h4 data-aos="fade-right" data-aos-duration="2000">Get a Mercedes-Benz E-Class, where luxury meets performance in perfect harmony.<br> Experience a driving sensation like no other as you immerse yourself in the epitome of <br> automotive excellence. The E-Class seamlessly blends cutting-edge technology with<br> timeless design, promising a journey that is not just a commute but a celebration of innovation.</h4>
+</div>
+
+<div class="section" >
+  <h1>HONDA CAR</h1>
+  <img src="{% static '' %}img/hon 1.jpg" alt="Developer 1" data-aos="fade-down" data-aos-duration="2000">
+  <h4 data-aos="fade-right" data-aos-duration="2000">Get a Honda Accord a harmonious blend of style, efficiency, and reliability that transforms<br>  every drive into a delightful experience. The Accord, a symbolof Honda's<br>   commitment to innovation, offers a perfect balance of performance and practicality.</h4>
+  
+  <h1>LEXUS CAR</h1>
+  <img src="{% static '' %}img/lex 1.jpg" alt="Developer 1" data-aos="fade-down" data-aos-duration="2000">
+  <h4 data-aos="fade-right" data-aos-duration="2000">Buy a Lexus ES, a masterpiece of luxury and performance that redefines the art <br>of driving. The Lexus ES seamlessly blends elegance with cutting-edge technology,<br> promising a journey where every detail reflects sophistication and precision.</h4>
+</div>
+
+<section class="features">
+  <h2>Why Choose Us?</h2>
+  <ul data-aos="zoom-in" data-aos-duration="2000">
+      <li>Wide Selection of Cars</li>
+      <li>High-Quality Photos and Videos</li>
+      <li>Trusted Car Dealers</li>
+      <li>Easy and Secure Transactions</li>
+  </ul>
+</section>
+
+<section class="developers">
+  <h2>Meet the Software Engineers</h2>
+
+  <div class="developer" >
+
+      <p>Lead Engineer</p>
+      <img src="{% static '' %}img/Ade.jpg" alt="Developer 1" data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000">
+
+      <h4 data-aos="zoom-in" data-aos-duration="1000">ADEGBOLA ADEBISI hold Master of Business Administration, he is a good fit for the Lead Engineer position because of his experience in web app development and management, as well as his strong organizational and communication abilities. Being experienced in front-end and backend web development with Django python framework, he designed and developed the user interface and ensured backend functionality for the Zimrax autos web app. His work is essential in guaranteeing the project success.</h4>
+      
+  </div>
+  <div class="developer">
+      <p>Developer and project manager</p>
+      <img src="{% static '' %}img/timi.jpg" alt="Developer 2" data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000">
+
+      <h4 data-aos="zoom-in" data-aos-duration="1000">TIMILEHIN OLAMIJULO is currently in his final year of Computer science undergraduate studies. He is competent with Python backend frameworks like Django and Flask. He has also worked previously with the OpenAI API in a college project. He will be in charge of the cyber-security of the web-app, and architecture of the project. He will also oversee the successful integration of the payment gateway API for seemless deal with our client.
+      </h4>
+      
+  </div>
+
+</section>
+
+<section class="project-info" data-aos="zoom-in" data-aos-duration="2000">
+  <h2>Web App Project Portfolio project</h2>
+  <p >This project is part of our foundation portfolio project as a software engineering student of Alx Africa and Holberton school Silicon valley. We aim to showcase our skills in web development and create a user-friendly platform for car enthusiasts.</p>
+</section>
+
+
+
+<section class="cta">
+  <h2>Get Started</h2>
+  <p>Sign up or log in to start exploring our car listings and make the best deal for your dream car.</p>
+  <div class="buttons" data-aos="zoom-in" data-aos-duration="1000">
+      <a href="{% url 'register' %}" class="button">Sign Up</a>
+      <a href="{% url 'signin' %}" class="button">Log In</a>
+      <a href="https://github.com/Horbital1140/my_autos" class="button" target="_blank" >GitHub</a>
+      <a href="https://play.google.com/store/apps" class="button" target="_blank">Play Store</a>
+      <a href="https://www.apple.com/lae/app-store/" class="button" target="_blank">App Store</a>
+  </div>
+</section>
+
+<section class="contact" data-aos="flip-left"
+data-aos-easing="ease-out-cubic"
+data-aos-duration="2000">
+  <h2>Contact Us</h2>
+  <p>Have questions or need assistance? Reach out to us!</p>
+  <!-- Add your contact form here -->
+
+  <div class="container mt-5 mb-3">
+    <div class="row">
+      <h1 class="text-center reg">Contact Us</h1>
+      <div class="col-12 col-md-6 contact">
+        <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >YOUR MESSAGE</label
+            >
+            <textarea
+              name="message"
+              id=""
+              cols="30"
+              rows="10"
+              class="form-control"
+            ></textarea>
+          </div>
+  
+          <button type="submit" class="btn submit">Submit</button>
+        </form>
+      </div>
+      <div class="col-12 col-md-6">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15812.828080470746!2d4.554441031722165!3d7.767858463432965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1037880344b63867%3A0xb1fb6e9e054bab7a!2sOke%20Baale%20Ln%2C%20Osogbo%20230284%2C%20Osun!5e0!3m2!1sen!2sng!4v1702044201224!5m2!1sen!2sng"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="question">
+      <h4>How do I list my car for sale?</h4>
+      <p>Listing your car is easy! Sign up, log in, and follow the simple steps to create a listing with photos and videos of your car.</p>
+  </div>
+  <!-- Add more FAQ items as needed -->
+</section>
+  {%endblock content%}
+
+
+  {%block footer %}
+{% include 'footer.html' %}
+{%endblock footer%}
+

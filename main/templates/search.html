@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{%block header %}
+{% include 'header.html' %}
+{%endblock header%}
+
+{%block banner %}
+{% include 'banner.html' %}
+{%endblock banner%}
+
+{%block content %}
+
+{% load static %}
+
+
+
+{% if items %}
+<div class="container product">
+  <h1 class="text-center bg-dark text-danger pt-2">you searched for {{items}}</h1>
+  <div class="row mt-5 mb-5">
+    {% for product in searched_item %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center inpix">  <!-- REMOVE THE <a href="/detail.html"> SO THAT THE INTERFACE WILL NOT BE TOO BOLD-->
+        <img src="{{product.car_photo.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Product: {{product.car_product}}</h5>
+          <h5 class="card-title">MODEL: {{product.model}}</h5>
+          <p class="card-text">PROMO-PRICE: {{product.promo_price}}</p>
+          <p class="card-text">REGISTERED: {{product.Register}}</p>
+          <p class="card-text">YEAR: {{product.year}}</p>
+          <p class="card-text">SEAT-NUMBER: {{product.seats}}</p>
+
+          <form action="{% url 'add_to_cart' %}" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" name="quantity" value="1" />
+            <input type="hidden" name="carid" value="{{product.id}}" />
+            <button type="submit" class="btn cart">Add to Cart</button>
+          </form>
+
+         <!-- <a href="#" class="btn btn-primary">Add to Cart</a>-->
+        </div>
+      </div>
+    </div>
+    {%endfor %}
+{% else %}
+      Your search for {{items}} was not found
+  
+{% endif %}
+  
+    </div>
+</div>  
+  {%endblock content%}
+
+
+  {%block footer %}
+{% include 'footer.html' %}
+{%endblock footer%}
+

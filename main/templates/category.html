@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{%block header %}
+{% include 'header.html' %}
+{%endblock header%}
+
+{%block banner %}
+{% include 'banner.html' %}
+{%endblock banner%}
+
+{%block content %}
+
+{% load static %}
+
+<div class="container product">
+  <h1 class="text-center bg-dark text-danger pt-2">{{carbrand.Brand | title}} </h1>
+  <div class="row mt-5 mb-5">
+     
+    {% for car in caritem  %}
+    <div class="col-12 col-md-6 col-lg-4" data-aos="flip-left" data-aos-duration="3000">
+      <div class="card text-center">  
+        <a href="{% url 'detail' car.id car.slug %}"><img src="{{car.car_photo.url}}" class="card-img-top" alt="..."></a>
+        <div class="card-body">
+          <h5 class="card-title">{{car.model | title}}</h5> <!--| title capitalize each word-->
+          <p class="card-text">{{car.price}}</p>
+         
+          <form action="{% url 'add_to_cart' %}" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" name="quantity" value="1" />
+            <input type="hidden" name="carid" value="{{car.id}}" />
+            <button type="submit" class="btn cart">Add to Cart</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>  
+    {% endfor %}
+      
+    
+    </div>
+</div>
+  {%endblock content%}
+
+
+  {%block footer %}
+{% include 'footer.html' %}
+{%endblock footer%}
+

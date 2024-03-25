@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{%load humanize %}  <!--humanize was use to ensure there is comma added to our amount(money) in cart, we have added it to installed app in settings.py of horbit_autos app-->
+{%block header %}
+{% include 'header.html' %}
+{%endblock header%}
+
+{%block banner %}
+{% include 'banner.html' %}
+{%endblock banner%}
+
+{%block content %}
+
+{% load static %}
+
+<div class="container  mt-5 mb-5">
+  <h1 class="text-center title mb-5">Your shop Cart</h1>
+  <div class="row">
+    <div class="col-12 cart">
+      <table>
+        <thead>
+          <th>Action</th>
+          <th>item</th>
+          <th>brand</th>
+          <th>price</th>
+          <th>color</th>
+          <th>quantity</th>
+          <th>Amount</th>
+        </thead>
+        <tbody>
+          {% for item in cart  %}
+            <tr class="item">
+              <form action="{% url 'delete' %}" method="POST">
+                {% csrf_token %}
+                <td>
+                  <input type="hidden" name="delid" value="{{item.id}}">
+                  <button type="submit"><i class="bi bi-trash3-fill"></i></button>
+                </td>
+              </form>
+              <td><img src="{{item.car.car_photo.url}}" alt="" style="height:60px"></td>
+              <td>{{item.car.model}}</td>
+              <td>#{{item.price | floatformat:2 | intcomma}}</td>  <!--humanize has been loaded at the top and also added to installed app in settings.py to ensure intcomma work. intcomma added comma to the money in cart-->
+              <td>{{item.car.color}}</td>
+              
+              <form action="{% url 'update' %}" method="POST">
+                {% csrf_token %}
+                <td>
+                  <input type="number" min="1" max="30" name="quant" value="{{item.quantity}}">
+                  <input type="hidden" name="quantid" value="{{item.id}}">
+                  <button type="submit" class="btn btn-success">update</button>
+                </td>
+              </form>
+              <td>#{{item.amount | floatformat:2 | intcomma}}</td>
+            </tr>
+          {% endfor %}
+          
+          <tr class="subtotal">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>subtotal = </td>
+            <td>#{{subtotal | floatformat:2 | intcomma}}</td>
+          </tr>
+          <tr class="subtotal">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>vat = </td>
+            <td>#{{vat | floatformat:2 | intcomma}}</td>
+          </tr>
+          <tr class="subtotal">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>total Amount = </td>
+            <td>#{{total | floatformat:2 | intcomma}}</td>
+          </tr>
+          <tr class="subtotal">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td> <a href="{% url 'checkout' %}"> <button class="btn btn-warning"> Checkout </button> </a> </td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{%endblock content%}
+
+
+{%block footer %}
+{% include 'footer.html' %}
+{%endblock footer%}
+

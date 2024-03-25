@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{%block header %}
+{% include 'header.html' %}
+{%endblock header%}
+
+{%block banner %}
+{% include 'banner.html' %}
+{%endblock banner%}
+
+{%block content %}
+
+{% load static %}
+
+<div class="card container mb-5 mt-5 detail">
+  <div class="row g-0 detrow">
+    <div class="col-12 col-md-7 det">
+      <img src="{{cardetail.car_photo.url}}" class="img-fluid rounded-start" width="630px"  alt="...">
+    </div>
+    <div class="col-12   col-md-5 detinfo">
+      <div class="card-body">
+        <h5 class="card-title text-center pb-2 pt-1  bg-dark headname">Mercedez AMG</h5>
+        <p class="card-text text-start"><span>Product:</span> {{cardetail.car_product}}</p>
+        <p class="card-text text-start"><span>Model:</span> {{cardetail.model}}</p>
+        <p class="card-text text-start"><span>year:</span>{{cardetail.year}}</p>
+        <p class="card-text text-start"><span>color:</span> {{cardetail.color}}</p>
+        <p class="card-text text-start"><span>seat number:</span> {{cardetail.seats}}</p>
+        <p class="card-text text-start"><span>registered:</span> {{cardetail.Register}}</p>
+        <p class="card-text text-center"><span>Price:</span> {{cardetail.price}}</p>
+        <div class="text-center">
+          
+          <form action="{% url 'add_to_cart' %}" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" name="quantity" value="1" />
+            <input type="hidden" name="carid" value="{{cardetail.id}}" />
+            <button type="submit" class="btn cart">Add to Cart</button>
+          </form>
+          
+          <!--<button type="submit" class="btn cart">Add to Cart</button>
+          <button class=" btn btn-dark headname">Add to cart</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {%endblock content%}
+  {%block footer %}
+{% include 'footer.html' %}
+{%endblock footer%}
+

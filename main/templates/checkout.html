@@ -1,0 +1,138 @@
+{% extends 'base.html' %} {%load humanize %}
+<!--humanize was use to ensure there is comma added to our amount(money) in cart, we have added it to installed app in settings.py of horbit_autos app-->
+{%block header %} {% include 'header.html' %} {%endblock header%} {%block banner%} 
+{% include 'banner.html' %} {%endblock banner%} {%block content %} {% load static %}
+
+
+<div class="payments">
+  <h1>please click the below button for manual payment</h1>
+
+  <a href="{% url 'alt_pay' %}"
+    ><button class="btn submit">GET BANK ACCOUNT DETAILS</button></a
+  >
+</div>
+
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-12 col-md-6 cart">
+      <table>
+        <h1 class="text-center title mb-3">Purchase summary</h1>
+        <thead>
+          <th>item</th>
+          <th>brand</th>
+          <th>color</th>
+          <th>quantity</th>
+          <th>Amount</th>
+        </thead>
+        <tbody>
+          {% for item in cart %}
+          <tr class="item">
+            <td>
+              <img
+                src="{{item.car.car_photo.url}}"
+                alt=""
+                style="height: 60px"
+              />
+            </td>
+            <td>{{item.car.model}}</td>
+            <td>{{item.car.color}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.amount | floatformat:2 | intcomma}}</td>
+          </tr>
+          {% endfor %}
+
+          <tr class="total">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>total Amount =</td>
+            <td>{{total | floatformat:2 | intcomma}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 col-md-6 pt-5 register">
+      <h1>Pay through paystack</h1>
+      <form action="{% url 'pay' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">First Name</label>
+          <input
+            type="text"
+            name="first_name"
+            value="{{userprof.first_name}}"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Last Name</label>
+          <input
+            type="text"
+            name="last_name"
+            value="{{userprof.last_name}}"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Phone number</label
+          >
+          <input
+            type="text"
+            name="phone_number"
+            value="{{userprof.phone_number}}"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">City</label>
+          <input
+            type="text"
+            name="city"
+            value="{{userprof.city}}"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input
+            type="email"
+            name="email"
+            value="{{userprof.email}}"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Additional Information</label
+          >
+          <input type="hidden" name="total" value="{{total}}" />
+          <textarea
+            name="add_info"
+            id=""
+            cols="30"
+            rows="10"
+            class="form-control"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn submit">Pay now</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{%endblock content%} {%block footer %} {% include 'footer.html' %} {%endblock footer%}

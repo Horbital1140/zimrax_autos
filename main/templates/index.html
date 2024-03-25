@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {%block header %} {% include 'header.html' %}
+{%endblock header%} {%block balance %} {% include 'balance.html' %} {%endblock balance%}
+{%block carousel %} {% include 'carousel.html' %} {%endblock carousel%} 
+{%block content %}
+
+{% if user.is_authenticated %}
+
+<div class="balance text-center mt-1 bg-dark text-white">Bal: #00.00</div>
+
+<div class="container mb-5 home" data-aos="zoom-in-up">
+  <h1 class="text-center pt-5 title">Welcome To Horbit Autos</h1>
+  {%for item in cat %}
+  <div class="card mb-3 mt-5" data-aos="zoom-in-up">
+    <div class="row g-0">
+      <div class="col-md-6 motor">
+        <img
+          src="{{item.photo.url}}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title"><b>CATEGORY: {{item.Brand}}</b></h5>
+          <p class="card-text"><b>DESCRIPTION: {{item.description}}</b></p>
+
+          <a href="{% url 'product' %}"
+            ><button class="btn view_more">View More</button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% else %}
+<div class="container mb-5 home">
+  <h1 class="text-center pt-5 title">Welcome To Horbit Autos</h1>
+  {%for item in cat %}
+  <div class="card mb-3 mt-5">
+    <div class="row g-0">
+      <div class="col-md-6 motor">
+        <img
+          src="{{item.photo.url}}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">CATEGORY: {{item.Brand}}</h5>
+          <p class="card-text">DESCRIPTION: {{item.description}}</p>
+
+          <a href="{% url 'signin' %}"
+            ><button class="btn view_more">View More</button></a
+          >
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endif %} {%endblock content%} {%block footer %} {% include 'footer.html' %}
+{%endblock footer%}

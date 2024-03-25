@@ -1,0 +1,197 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'landing_page' %}"
+      ><img src="{{info.logo.url}}" style="height: 40px" />
+    </a>
+
+    <div class="name">ZIMRAX AUTOS</div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'product' %}">products</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            aria-expanded="false"
+          >
+            Category
+          </a>
+          <ul class="dropdown-menu">
+            {% for item in cat %}
+            <li>
+              <a
+                class="dropdown-item"
+                href="{% url 'category' item.id item.slug %}"
+                >{{item.Brand}}</a
+              >
+            </li>
+
+            {% endfor %}
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="{% url 'contact' %}"
+            tabindex="-1"
+            aria-disabled="true"
+            >contact us</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a href="{% url 'cart' %}" class="nav-link"
+            ><i class="bi bi-cart4"></i
+          ></a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {% if user.customer_registration %}
+            <img
+              src="{{user.customer_registration.profile_picture.url}}"
+              alt="avatar"
+              style="height: 30px"
+            />
+
+            {% endif %} {% if request.user %}
+            <span>Hi {{user.username}}!</span>
+
+            {% endif %}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="{% url 'profile' %}">profile</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'signout' %}">log out</a>
+            </li>
+          </ul>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'product' %}">products</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Category
+          </a>
+          <ul class="dropdown-menu" aria-labelle dby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">lexus</a></li>
+            <li><a class="dropdown-item" href="#">mercedes Benz</a></li>
+            <li><a class="dropdown-item" href="#">Honda</a></li>
+            <li><a class="dropdown-item" href="#">Toyota</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="{% url 'contact' %}"
+            tabindex="-1"
+            aria-disabled="true"
+            >contact us</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="{% url 'signin' %}"
+            tabindex="-1"
+            aria-disabled="true"
+            >log in</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="{% url 'register' %}"
+            tabindex="-1"
+            aria-disabled="true"
+            >Register</a
+          >
+        </li>
+        {% endif %}
+      </ul>
+      <form action="{% url 'search' %}" method="POST" class="d-flex">
+        {% csrf_token %}
+        <input
+          class="form-control me-2"
+          type="search"
+          name="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button type="submit" class="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!--pop up message-->
+{% for item in messages %}
+<div
+  class="alert alert-success alert-dismissible fade show text-center mb-0"
+  role="alert"
+>
+  <strong>{{ item }}</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+
+{% endfor %}
+
+<!--pop up message stop here-->

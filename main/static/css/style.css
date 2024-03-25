@@ -1,0 +1,892 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+/* styling navbar*/
+.navbar {
+    background-color: orangered;
+    
+}
+
+.navbar .form .search:hover {
+    background-color: orangered;
+    color:black;
+
+}
+.navbar:hover {
+    background-color: orange;
+}
+
+.navbar .name {
+    font-weight: bolder;
+}
+
+.navbar .name:hover {
+    font-weight: bolder;
+    color:orangered
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: bolder;
+    color: black;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: orangered;
+}
+
+.navbar-brand .name {
+    text-align: center;
+}
+
+.navbar-nav .nav-link img {
+    border-radius: 100%;
+}
+
+.dropdown .dropdown-menu {
+    background-color: orange;
+}
+
+.dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: black;
+    color: white;
+}
+
+
+.collapse form button {
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+
+/* styling navbar end here*/
+
+/*carousel start here*/
+.caroimg img {
+    height:60vh
+}
+
+.carousel-control-prev span i, .carousel-control-next span i{
+    font-size: 40px;
+    color:orange;
+}
+
+.carousel-indicators .active {
+    background-color: orange !important;
+}
+/*carousel end here*/
+
+/*styling content start here*/
+.title {
+    color: orangered;
+    font-size: 50px;
+    font-weight: 600px;
+
+}
+
+.title::after {
+    content: '';
+    display:block;
+    width: 300px;
+    height: 5px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.motor img {
+    height:70vh;
+    width: 100%;
+
+}
+.home .card-body {
+    text-align: center;
+    margin-top: 10%;
+    text-transform: capitalize;
+}
+
+.home .card-body .view_more {
+    background-color: orangered;
+}
+
+.home .card-body .view_more:hover {
+    color: orangered;
+    background-color: black;
+}
+
+.home .card {
+    border:none;
+}
+
+.home .card .card-body {
+    box-shadow: 5px 10px #f0f0f0;
+    height:60vh;
+}
+
+/*styling content end here*/
+
+/*styling footer start*/
+.footer {
+    background-color: orangered;
+    padding-top: 3%;
+   
+}
+
+.footer h2 {
+    text-transform: capitalize;
+    color:white;
+    font-size: 20px;
+}
+
+.footer ul a {
+    text-decoration: none;
+    color:black;
+    font-size:20px;
+    font-weight: bolder;
+}
+
+.footer ul a:hover {
+    color: white;
+}
+
+.footer h2:hover, .motto:hover {
+    color:black;
+}
+
+.footer img{
+    height: 100px;
+}
+
+
+.motto {
+    text-align: left;
+}
+
+
+
+.copyright {
+    color:black;
+    font-size:20px;
+    font-weight: bolder;
+}
+.developer a {
+    text-decoration: none;
+    color:black;
+    font-size:20px;
+    font-weight: bolder;
+}
+
+
+.copyright:hover, .developer a:hover {
+    color:orangered;
+}
+
+/*styling footer end*/
+
+
+
+/*styling products page start*/
+
+/*styling banner start*/
+.banner {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(../img/banner\ 2.jpg);
+    height:40vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+   
+}
+
+/*styling banner end*/
+
+/*styling product start*/
+.product {
+    padding-top: 2%;
+}
+
+.product .card img {
+    height: 250px;
+    padding: 4%;
+    border-bottom: 4px solid orangered;
+}
+.product .card {
+    border: 2px solid orangered;
+    border-radius: 10%;
+    box-shadow: 2px 2px 2px 2px orangered;
+    margin-bottom: 15%;
+} 
+
+
+
+/*
+.product .card a {
+    background-color: orangered;
+    color:black;
+    
+}
+
+.product .inpix a {
+    text-decoration: none;
+
+}
+
+
+*/
+.product .card .cart {
+    background-color: orangered;
+    color:black;
+}
+
+.product .card .cart:hover {
+    background-color: black;
+    color: orangered;
+
+}
+
+
+
+.product .card:hover {
+    transform: translatey(-50px);
+}
+
+
+/*styling products page end*/
+
+/*styling contact us page start*/
+
+.contact {
+    padding-top: 5%;
+}
+
+.contact form {
+    outline:2px solid orangered;
+    padding:1%;
+    width:50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 20px;
+    margin-top: 3%;
+
+
+}
+
+.submit {
+    background-color: orangered;
+    padding:10px;
+    width:50%;
+    border-radius: 20px;
+    
+}
+
+.map {
+    padding-top: 10%;
+    
+}
+/*styling contact us page end*/
+
+/*styling register page start*/
+
+.reg {
+    color: orangered;
+}
+
+.reg::after {
+    content: '';
+    display:block;
+    width: 100px;
+    height: 3px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.register form {
+    outline:2px solid orangered;
+    padding:1%;
+    width:50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 20px;
+    margin-top: 3%;
+
+
+}
+
+
+
+/*styling register page end*/
+
+
+/*styling detail start here*/
+
+.det{
+    border-right: 2px solid orangered;
+}
+
+.det img{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+.detail {
+    border: 2px solid orangered !important;
+    box-shadow: 0 0 10px 0 orangered !important;
+}
+ .detail h5 {
+    font-weight:bold;
+ }
+
+ .card-body p {
+    text-transform: capitalize;
+    font-size: 15px;
+    font-family: fantasy;
+    word-spacing:10px;
+ }
+
+.headname {
+    color:orangered;
+}
+
+
+
+
+/*styling detail end*/
+
+/*styling cart start*/
+.cart table {
+    width: 100%;
+}
+
+.cart thead {
+    background-color: orangered;
+    text-align: center;
+}
+
+.cart th{
+    text-transform: capitalize;
+}
+
+.cart tbody i {
+    color: red;
+}
+
+.card td {
+    text-transform: capitalize;
+}
+
+.item td {
+    border: 2px solid orangered;
+    text-align: center;
+}
+
+.item td button, .subtotal td button {
+    background-color: orangered;
+    color: black;
+}
+
+.subtotal td {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+.subtotal td button {
+    margin-top: 5%;
+    font-size: 15px;
+    
+}
+
+/*styling cart end*/
+
+/*styling checkout start*/
+.cart h1 {
+    text-transform: capitalize;
+    color: orangered;
+}
+
+.total td {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 5%;
+    margin-bottom: 2%;
+
+}
+
+/*styling checkout end*/
+
+/*styling profile start*/
+.pavat {
+    text-align: center;
+}
+
+
+.pavat img {
+    height:200px;
+    border-radius: 100%;
+}
+
+.pavat h5 {
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+.plink {
+    background-color: orangered;
+    border-radius: 1rem;
+}
+
+.plink h2 {
+    text-transform: capitalize;
+    border-bottom: 2px solid black;
+    margin-top: 4%;
+    
+}
+
+.plink ul a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+    font-size: 20px;
+}
+
+.pform form {
+    outline: 2px solid orangered;
+    padding: 10%;
+}
+
+.pform form input {
+    background-color: orangered;
+    border: none;
+    
+}
+
+
+/*styling profile end*/
+
+
+
+
+/*payment page start here*/
+.payments {
+    outline:2px solid orangered;
+    padding:1%;
+    width:30%;
+    margin-left: 35%;
+    margin-right: 50%;
+    border-radius: 20px;
+    margin-top: 10%;
+
+}
+
+.payments ul li, h1 {
+    list-style: none;
+    margin-bottom: 5%;
+
+}
+
+
+
+/*payment page end here*/
+
+
+/*landing page start here*/
+
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+form {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    text-align: center;
+}
+
+header {
+    background-color: orangered;
+    color: black;
+    display: flex;
+    gap:5px;
+    align-items: center;
+    justify-content: center;
+}
+
+header .ultimate {
+    flex-basis:35%;
+}
+
+header .welcome {
+    flex-basis:50%;
+    margin-left: 20%;
+}
+
+header .logo {
+    flex-basis:10%;
+}
+
+
+
+header:hover, footer:hover {
+    background-color: orange;
+    color: orangered;
+    padding: 5px;
+}
+
+header h1, p {
+    font-weight: bolder;
+    color: black;
+}
+
+.logo {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+}
+
+h1, h2, h3 {
+    margin-bottom: 5px;
+    color: orangered;
+}
+
+.about,
+.features,
+.developers,
+.project-info,
+.car-content,
+.cta,
+.contact,
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.features ul li {
+    font-weight: bolder;
+    list-style: none;
+}
+.developers .developer h3 {
+    width: 90%;
+}
+.developer {
+    margin-bottom: 20px;
+}
+
+.developer img {
+    width: 300px; 
+    height: 300px; 
+    border-radius: 50%; 
+    margin-bottom: 10px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    background-color: orangered;
+    color: black;
+    padding: 10px 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: black;
+    color: orangered;
+}
+
+footer {
+    background-color: orangered;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-links a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: none;
+}
+
+
+
+
+/*media querry start*/
+@media (min-width: 320px) and (max-width: 768px){
+    .caroimg img {
+        height:40vh
+    } 
+    
+    .carousel-control-prev span i, .carousel-control-next span i{
+        font-size: 20px;
+        color:orange;
+    }
+    .title {
+        color: orangered;
+        font-size: 25px;
+        font-weight: 600px;
+    
+    }
+    
+    .title::after {
+        content: '';
+        display:block;
+        width: 150px;
+        height: 2px;
+        background-color: black;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .motor img {
+        height:40vh;
+        width: 100%;
+    
+    }
+
+    .map {
+        padding-top: 6%;
+        width: 100%;
+        
+    }
+
+    .register form {
+        outline:2px solid orangered;
+        padding:1%;
+        width:100%;
+        margin-left: 1%;
+        margin-right: 1%;
+        border-radius: 20px;
+        margin-top: 3%;
+    
+    
+    }
+
+    .plink {
+        background-color: orangered;
+        border-radius: 1rem;
+        margin-top: 10%;
+    }
+    
+
+/*cart start*/
+
+.cart table {
+    width: 50%;
+}
+
+.cart thead {
+    background-color: orangered;
+    text-align: center;
+}
+
+.cart th{
+    text-transform: capitalize;
+}
+
+.cart tbody i {
+    color: red;
+}
+
+.card td {
+    text-transform: capitalize;
+}
+
+.item td {
+    border: 2px solid orangered;
+    text-align: center;
+}
+
+.item td button, .subtotal td button {
+    background-color: orangered;
+    color: black;
+}
+
+.subtotal td {
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+.subtotal td button {
+    margin-top: 5%;
+    font-size: 15px;
+    
+}
+
+/*styling footer start*/
+.footer {
+    background-color: orangered;
+    padding-top: 3%;
+    
+}
+
+/* styling navbar*/
+.navbar {
+    background-color: orangered;
+    
+}
+/*banner*/
+.banner {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(../img/banner\ 2.jpg);
+    height:40vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+
+}
+
+
+/*media querry end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        text-align: center;
+        margin:none;
+    }
+    
+    
+    header {
+        background-color: orangered;
+        color: black;
+        display: flex;
+        gap:5px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+    header .ultimate {
+        display:none;
+
+    }
+
+    header .welcome {
+        flex-basis:70%;
+        margin-left: 10%;
+        font-size:10px;
+    }
+    
+    header .logo {
+        flex-basis:30%;
+    }
+
+    .section h4 {
+        width:90%;
+        margin-left: 5%;
+    }
+
+    .button {
+        display:block;
+        background-color: orangered;
+        color: black;
+        padding: 5px 10px;
+        margin-right: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+
+@media only screen and (max-width: 750px) {
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        text-align: center;
+        margin:none;
+    }
+    
+    
+    header {
+        background-color: orangered;
+        color: black;
+        display: flex;
+        gap:5px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+    header .ultimate {
+        display:none;
+
+    }
+
+    header .welcome {
+        flex-basis:70%;
+        margin-left: 10%;
+        font-size:10px;
+    }
+    
+    header .logo {
+        flex-basis:30%;
+    }
+
+    .section h4 {
+        width:90%;
+        margin-left: 5%;
+    }
+
+    .button {
+        display:block;
+        background-color: orangered;
+        color: black;
+        padding: 5px 10px;
+        margin-right: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+}
+
+/* Add styles for the contact form and other sections as needed */
+
+
+/*landing page end here*/
+
+

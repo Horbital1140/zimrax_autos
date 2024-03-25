@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {%load humanize %} {%block header %} {% include 'header.html' %}
+{%endblock header%} {%block banner %} {% include 'banner.html' %} {%endblock banner%} {%block content %}
+
+<div class="payments">
+  <h1>please pay to the following account</h1>
+  <ul>
+    {% for money in alt %}
+    <li><b>ACCOUNT NAME</b>: {{ money.acct_name }}</li>
+    <li><b>ACCOUNT NUMBER</b>: {{ money.acct_number }}</li>
+    <li><b>BANK NAME</b>: {{ money.bnk_name }}</li>
+    {% endfor %}
+  </ul>
+  <button type="submit" class="btn submit" a href="#">
+    send payment notification
+  </button>
+</div>
+
+{%endblock content%} {%block footer %} {% include 'footer.html' %} {%endblock footer%}
