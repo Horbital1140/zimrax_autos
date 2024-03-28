@@ -1,6 +1,13 @@
 Our web-app was created to reduce the hassle of locating a trustworthy local auto seller, so we decided to work on creating a web application for car sales. An automobile firm's sales will soar when it has a web application that allows prospective buyers to see what it has in stock and be able to order and buy from the comfort of their homes. The web app will bolster the company’s online presence, thus spreading awareness and boosting car sales.
 
-Our web-app was created to reduce the hassle of locating a trustworthy local auto seller, so we decided to work on creating a web application for car sales. An automobile firm's sales will soar when it has a web application that allows prospective buyers to see what it has in stock and be able to order and buy from the comfort of their homes. The web app will bolster the company’s online presence, thus spreading awareness and boosting car sales.
+Frontend Technology
+The frontend technologies we used for the user interface (UI) are HTML, CSS, and bootstrap.
+Backend Technology
+The backend technology that was used for the project is Python Django.
+Database
+The database system used for storing and retrieving data is the Sqlite
+paystack API
+
 
 Core Algorithm and code snippet
 
